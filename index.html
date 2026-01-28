@@ -1,112 +1,214 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlobiSun Multimedia Corp.</title>
+    <title>GlobiSun Multimedia Corp. | Global Portal</title>
+    <meta name="description" content="Official portal of GlobiSun Multimedia Corp., a California-based diversified multimedia and retail enterprise established in 2026.">
     <style>
-        /* 页面整体风格：极简、黑金商务风 */
+        /* --- GLOBAL STYLES --- */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #000000;
+            font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            background-color: #050505; /* Deep Black */
             color: #ffffff;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            line-height: 1.6;
         }
 
-        /* 公司标题 */
-        h1 {
-            font-size: 2rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 50px;
-            color: #d4af37; /* 香槟金 */
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+
+        /* --- HEADER & HERO SECTION --- */
+        header {
+            padding: 60px 20px 40px;
             text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            border-bottom: 1px solid #222;
         }
 
-        /* 链接容器 */
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            max-width: 400px;
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0 0 10px;
+            background: linear-gradient(90deg, #cfc09f, #ffecb3, #b3a076); /* Luxury Gold Gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        /* --- COMPANY PROFILE (Added based on Files) --- */
+        .profile-section {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
             padding: 0 20px;
         }
 
-        /* 链接按钮样式 */
-        .link-btn {
-            display: block;
-            padding: 20px;
-            background: #111;
-            border: 1px solid #333;
-            color: #fff;
-            text-decoration: none;
-            text-align: center;
+        .profile-text {
+            color: #bbb;
             font-size: 1.1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            font-weight: 300;
+        }
+
+        .est-date {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 15px;
+            border: 1px solid #333;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #d4af37;
+        }
+
+        /* --- BUSINESS DIVISIONS (Grid Layout) --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-radius: 4px;
             position: relative;
             overflow: hidden;
         }
 
-        /* 鼠标悬停效果 */
-        .link-btn:hover {
-            background: #d4af37;
+        .card:hover {
+            border-color: #d4af37;
+            background: #161616;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #fff;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            margin-top: auto;
+            padding: 10px 30px;
+            border: 1px solid #444;
+            color: #ccc;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card:hover .btn {
+            background-color: #d4af37;
             color: #000;
-            transform: scale(1.02);
             border-color: #d4af37;
         }
 
-        /* 针对成人内容的特殊标记 */
-        .adult-warning {
-            font-size: 0.7rem;
-            color: #666;
-            margin-top: 5px;
-            display: block;
-        }
-        .link-btn:hover .adult-warning {
-            color: #000;
-        }
+        /* Specific Card Accents */
+        .card.film { border-top: 3px solid #fff; }
+        .card.art { border-top: 3px solid #2ed573; }
+        .card.adult { border-top: 3px solid #ff4757; }
+        .card.pet { border-top: 3px solid #ffa502; }
 
-        /* 底部版权 */
+        /* Age Gate Text */
+        .warning { font-size: 0.7rem; color: #555; display: block; margin-top: 5px; }
+
+        /* --- FOOTER --- */
         footer {
-            margin-top: 60px;
-            font-size: 0.8rem;
+            margin-top: 80px;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
             color: #444;
+            font-size: 0.8rem;
         }
+        
+        .legal-info { margin-top: 10px; }
+
     </style>
 </head>
 <body>
 
-    <h1>GlobiSun Multimedia</h1>
+    <header>
+        <h1>GlobiSun Multimedia Corp.</h1>
+        <div class="subtitle">Montebello, California</div>
 
-    <div class="links-container">
-        
-        <a href="https://shop.globisun.art" class="link-btn">
-            🎨 美术画材商城
-            <span class="adult-warning">Art Supplies Store</span>
+        <div class="profile-section">
+            <p class="profile-text">
+                GlobiSun Multimedia Corp. is a premier diversified enterprise specializing in 
+                multimedia production and curated retail experiences. 
+                From professional cinematography to specialized consumer goods, 
+                we are dedicated to innovation, quality, and artistic expression.
+            </p>
+            <div class="est-date">ESTABLISHED JANUARY 2026</div>
+        </div>
+    </header>
+
+    <div class="grid-container">
+
+        <a href="#" class="card film">
+            <div class="card-icon">🎬</div>
+            <h2>GlobiSun Studios</h2>
+            <p>Original short films, commercial multimedia production, and visual storytelling services.</p>
+            <div class="btn">View Portfolio</div>
         </a>
 
-        <a href="#" class="link-btn" onclick="alert('即将进入成人专区，请确认您已满21岁。')">
-            🔞 成人生活专区
-            <span class="adult-warning">Adults Only (21+)</span>
+        <a href="https://shop.globisun.art" class="card art">
+            <div class="card-icon">🎨</div>
+            <h2>Art Supplies</h2>
+            <p>Professional grade tools for creators. Official retailer for fine art materials.</p>
+            <div class="btn">Visit Store</div>
         </a>
 
-        <a href="#" class="link-btn">
-            🐾 宠物优选
-            <span class="adult-warning">Pet Supplies</span>
+        <a href="#" class="card adult" onclick="return confirm('Age Verification: Are you over 21 years old?')">
+            <div class="card-icon">🔞</div>
+            <h2>Private Collection</h2>
+            <p>Intimate wellness and lifestyle products for adults. </p>
+            <div class="btn">Enter (21+)</div>
+            <span class="warning">*Age Verification Required</span>
+        </a>
+
+        <a href="#" class="card pet">
+            <div class="card-icon">🐾</div>
+            <h2>Pet Essentials</h2>
+            <p>Premium care products and accessories for your beloved companions.</p>
+            <div class="btn">Explore</div>
         </a>
 
     </div>
 
     <footer>
-        &copy; 2026 GlobiSun Corp. CA
+        <div>&copy; 2026 GlobiSun Multimedia Corp. All Rights Reserved.</div>
+        <div class="legal-info">
+            125 N 5th St, Unit C, Montebello, CA 90640<br>
+            Registered in the State of California.
+        </div>
     </footer>
 
 </body>
